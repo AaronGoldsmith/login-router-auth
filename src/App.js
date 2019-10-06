@@ -1,8 +1,9 @@
-import React from "react";
+import React,{useState} from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import Settings from "./Pages/Settings";
-import User from "./Pages/User";
+import Profile from "./Pages/Profile";
 import Home from "./Pages/Home";
+import User from "./Pages/User";
 import notFound from "./Pages/notFound";
 import Login from "./Pages/Login";
 import Navbar from "./Navbar";
@@ -11,14 +12,14 @@ import "./styles.css";
 
 // Giphy gallery goes here
 function App () {
-  
    return (
       <Router>
-        <Navbar  />
+        <Navbar/>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
-          <Route path="/profile/:id" component={User} />
+          <Route path="/user/:id" component={User} />
+          <Route exact path="/profile" component={Profile} />
           <Route path="/settings" component={Settings} />
           <Route component={notFound} />
         </Switch>

@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import * as firebase from "firebase/app";
-import * as firebaseui from "firebaseui";
 import "firebase/auth";
-
 import "../styles.css";
-
 
 class Login extends Component {
   constructor(props) {
@@ -13,26 +10,26 @@ class Login extends Component {
   }
 
   registerUser() {
-      firebase.auth().onAuthStateChanged(user => {
-        if (user && !user.isAnonymous) {
-          this.setState({ user });
-        } else {
-          console.log("signed out");
-        }
-      });
+    firebase.auth().onAuthStateChanged(user => {
+      if (user && !user.isAnonymous) {
+        this.setState({ user });
+      } else {
+        console.log("user is not signed in");
+      }
+    });
   }
-  componentDidUpdate(){
-    if(window.location.pathname.includes('success')){
-      console.log('redirect')
-    }
-  }
-  loginUI = (user) =>{
-    return user ? <pre>{(JSON.stringify(user,null, ' '))}</pre> :
+  loginUI = (user) => {
+    return user && !user.isAnonymous ?
+      <pre>
+        {(JSON.stringify(user, null, ' '))}
+      </pre> :
       <div id="firebaseui-auth-container" />
   }
   componentDidMount() {
     this.registerUser();
-
+    if (window.location.href.includes('success')) {
+      console.log('redirect')
+    }
   }
   render() {
     var user = firebase.auth().currentUser;
@@ -40,9 +37,7 @@ class Login extends Component {
     return (
       <div>
         <h1>login</h1>
-         {/* {user ? user.displayName :
-         <div id="firebaseui-auth-container" />} */}
-         {this.loginUI(user)}
+        {this.loginUI(user)}
       </div>
     );
   }

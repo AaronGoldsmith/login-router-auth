@@ -25,3 +25,10 @@
 .white {
   color: white;
 }
+
+/* user */
+
+.userImage{
+  width: 80px;
+  height: 80px;
+}
