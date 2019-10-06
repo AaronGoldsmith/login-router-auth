@@ -1,21 +1,24 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import * as firebase from "firebase/app";
+import "../styles.css";
 
-// import "firebase/auth";
-// const { params } = this.props.match;
 
-class Profile extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { user: undefined };
+const UserImage = ({ imgSrc, name }) => (
+  <img className="userImage" src={imgSrc} alt={name} />
+)
+function Profile () {
+  const [user, setUser] = useState(null)
+  firebase.auth().onAuthStateChanged( user => setUser(user) )
+
+    var name = user ? user.displayName : ""
+    return (
+      <div>
+        <h1> Your profile </h1>
+        {user && <UserImage imgSrc={user.photoURL} name={name} />}
+        <p>{name}</p> 
+      </div>
+    );
   }
-  componentDidMount() {
-    // var user = firebase.auth().currentUser;
-    // this.setState({ user });
-  }
-  render() {
-    const { user } = this.state;
-    return <div>{user || "log in"}</div>;
-  }
-}
+
 export default Profile;
+

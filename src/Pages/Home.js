@@ -1,8 +1,4 @@
 import React, { Component } from "react";
-import * as firebase from "firebase/app";
-import * as firebaseui from "firebaseui";
-import "firebase/auth";
-
 import "../styles.css";
 
 class Home extends Component {
@@ -10,7 +6,6 @@ class Home extends Component {
     super(props);
     this.state = { user: undefined };
   }
-
   
   render() {
     return (

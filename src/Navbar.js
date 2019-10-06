@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import * as firebase from "firebase/app";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -27,12 +27,14 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Navbar(){
-  const [user,setUser] = useState(null)
+  const [user,setUser] = useState(null);
   const styles = useStyles()
-  firebase.auth()
-    .onAuthStateChanged(user => user ? setUser(user) : setUser(null))
+
   
-  const name = user? user.displayName : "Anonymous"
+firebase.auth()
+  .onAuthStateChanged(user => user ? setUser(user) : setUser(null))
+
+  const name = user? user.displayName.split(' ')[0] : "Anonymous"
     return (
       <div className={"root"}>
         <AppBar position="sticky">
@@ -50,11 +52,13 @@ function Navbar(){
               LOGIN
             </Link>}
 
-            <Link to="profile">
-              <IconButton aria-label="profile">
+            <Link to={`profile`}>
+              <IconButton aria-label="profile" >
                 <AccountCircle />
               </IconButton>
-            </Link>
+            </Link> 
+
+
             <ButtonIcon name="settings_applications" url="settings" />
           </Toolbar>
         </AppBar>
