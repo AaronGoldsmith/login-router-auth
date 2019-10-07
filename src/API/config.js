@@ -1,8 +1,5 @@
  import firebase from "firebase";
  import * as firebaseui from "firebaseui"
- import dotenv from 'dotenv'
-
- dotenv.config()
 
  export const firebaseConfig = {
   apiKey: `${process.env.API_KEY}`,
