@@ -1,23 +1,34 @@
-import React, { Component } from "react";
-import * as firebase from "firebase/app";
-import * as firebaseui from "firebaseui";
-import "firebase/auth";
-
+import React, {useState, useLayoutEffect} from "react";
+import GiphList from "../Components/Gallery/GiphList";
+// import Modal from "../components/Modal";
+import Search from "../Components/Gallery/Search";
 import "../styles.css";
 
-class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { user: undefined };
-  }
-
+function Home() {
+  const [showModal, setModal] = useState(false);
+  const [key, setKey] = useState(null);
+  const [scrolled, setScrolled] = useState(true);
   
-  render() {
-    return (
-      <div style={{background:"#3F51B5", height: "80vh"}}>
-        <h1></h1>
-      </div>
-    );
-  }
+
+  return (
+    <div className="App">
+      
+      <Search
+        useMag={key && key.length > 0}
+        top={scrolled}
+        updateVal={input => {
+          setKey(input);
+        }}
+      />
+      {/* <Modal showing={showModal} onClose={() => setModal(null)} /> */}
+      <GiphList
+        handleScroll={(top)=> top<=80?setScrolled(true):setScrolled(false)}
+        searchKey={key}
+        openModal={e => {
+          setModal(e);
+        }}
+      />
+    </div>
+  );
 }
 export default Home;

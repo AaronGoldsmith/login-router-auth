@@ -1,15 +1,17 @@
 import React from "react";
+
+//require('dotenv')
+
 import ReactDOM from "react-dom";
-import dotenv from 'dotenv'
 
 import App from "./App";
 import * as firebaseui from "firebaseui";
 import * as firebase from "firebase"
 
-import {uiConfig, firebaseConfig} from "./config"
+import {uiConfig, firebaseConfig} from "./API/config"
 
 const rootElement = document.getElementById("root");
-dotenv.config()
+
 firebase.initializeApp(firebaseConfig)
 
 new firebaseui.auth

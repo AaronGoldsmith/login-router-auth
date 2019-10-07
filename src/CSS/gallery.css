@@ -1,0 +1,33 @@
+#grid {
+  width: calc(100vw - 10px);
+  display: grid;
+  column-fill: auto;
+}
+section#grid {
+  margin: 0px auto;
+  margin-top: 200px;
+}
+.title {
+  font-weight: 500;
+  font-family: "Source Sans Pro", sans-serif;
+  text-transform: capitalize;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+.gridItem img {
+  width: auto;
+  height: auto;
+  max-height: 200px;
+}
+.gridItem {
+  margin-bottom: -15px;
+  margin: -3px 5px;
+  display: inline-flex;
+  flex-direction: column;
+}
+.gridItem .title{
+  display:none;
+}
