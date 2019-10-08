@@ -52,7 +52,7 @@ class GiphList extends Component {
   render() {
     const { data } = this.state;
     return (
-      <section id="grid">
+      // <section id="grid">
         <div className="grid-content wrapper">
           {data &&
             data.length > 0 &&
@@ -67,7 +67,7 @@ class GiphList extends Component {
               />
             ))}
         </div>
-      </section>
+      // </section>
     );
   }
 }

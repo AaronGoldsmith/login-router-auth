@@ -14,9 +14,11 @@ export const Giph = props => {
       // onClick={props.handleClick}
     >
       <img src={imageSrc} alt={props.label} />
-      <p id={props.label} className="title">
-        {props.label}
-      </p>
+      <div className="shadowTitle">
+        <p id={props.label} className="title">
+          {props.label}
+        </p>
+        </div>
       {/* title */}
     </div>
   );
