@@ -1,18 +1,37 @@
-import React, { Component } from "react";
+import React, {useState, useCallback} from "react";
+import GiphList from "../Components/Gallery/GiphList";
+// import Modal from "../components/Modal";
+import Search from "../Components/Gallery/Search";
 import "../styles.css";
 
-class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { user: undefined };
-  }
+function Home() {
+  const [showModal, setModal] = useState(false);
+  const [key, setKey] = useState(null);
+  const [scrolled, setScrolled] = useState(true);
   
-  render() {
-    return (
-      <div style={{background:"#3F51B5", height: "80vh"}}>
-        <h1></h1>
-      </div>
-    );
+  const scrollHandler = (top) => {
+    top <=50 ? setScrolled(true) : setScrolled(false)
   }
+
+  return (
+    <div className="App">
+      
+      <Search
+        useMag={key && key.length > 0}
+        top={scrolled}
+        updateVal={input => {
+          setKey(input);
+        }}
+      />
+      {/* <Modal showing={showModal} onClose={() => setModal(null)} /> */}
+      <GiphList
+        handleScroll={(top)=> scrollHandler(top)}
+        searchKey={key}
+        openModal={e => {
+          setModal(e);
+        }}
+      />
+    </div>
+  );
 }
 export default Home;
