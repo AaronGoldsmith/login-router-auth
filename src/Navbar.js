@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
  {/* <button onClick={()=>firebase.auth().signOut()} >logout</button> */}
 
 const useStyles = makeStyles(theme => ({
-  root: {
+  rootBar: {
     flexGrow: 1
   },
   title: {
@@ -34,7 +34,7 @@ function Navbar(){
   
   const name = user? user.displayName : "Anonymous"
     return (
-      <div className={"root"}>
+      <div className={"rootBar"}>
         <AppBar position="sticky">
           <Toolbar>
             <Link to={"/"}>

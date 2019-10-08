@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { UseStar } from "../SVG/Star"
 import "../../CSS/gallery.css";
 
 export const Giph = props => {
   const [imageSrc, setImageSrc] = useState(props.src);
   const stopGif = () => setImageSrc(props.src);
   const startGif = () => setImageSrc(props.animatedSrc);
+  const title = props.label.length > 0 ? props.label.split('GIF')[0] : "Named Gif"
   return (
     <div
       className="gridItem"
@@ -15,11 +17,16 @@ export const Giph = props => {
     >
       <img src={imageSrc} alt={props.label} />
       <div className="shadowTitle">
-        <p id={props.label} className="title">
-          {props.label}
-        </p>
+          <p id={props.label}
+            className="title">
+              {title}
+          </p>
         </div>
-      {/* title */}
+
+        <div className="actionItems">
+            {/* <UseStar prefill={false} /> */}
+            <UseStar  />
+        </div>
     </div>
   );
 };

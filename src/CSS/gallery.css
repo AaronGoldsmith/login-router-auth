@@ -46,14 +46,29 @@
   opacity: 0;
   align-self: flex-start;
 }
+.gridItem .actionItems{
+  display:none;
+}
+
+.starAction{
+  transform: scale(0.8);
+  position: absolute;
+  right: 10px;
+  top:5px;
+}
 .gridItem:hover .title{
   display: block;
   color: white;
   top: 12px;
 }
 
+
 .gridItem:hover .shadowTitle{
   opacity:1;
   transition: 50ms all ease-in;
 }
+.gridItem:hover .actionItems{
+  display:block;
+}
+
 

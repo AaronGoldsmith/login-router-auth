@@ -52,8 +52,7 @@ class GiphList extends Component {
   render() {
     const { data } = this.state;
     return (
-      // <section id="grid">
-        <div className="grid-content wrapper">
+        <section className="grid-content wrapper">
           {data &&
             data.length > 0 &&
             data.map((item, i) => (
@@ -66,8 +65,7 @@ class GiphList extends Component {
                 // handleClick={() => this.props.openModal(item)}
               />
             ))}
-        </div>
-      // </section>
+        </section>
     );
   }
 }
