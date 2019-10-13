@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import Settings from "./Pages/Settings";
 import Profile from "./Pages/Profile";
@@ -9,8 +10,6 @@ import Login from "./Pages/Login";
 import Navbar from "./Components/Navbar";
 
 import "./styles.css";
-
-
 
 // Giphy gallery goes here
 function App () {

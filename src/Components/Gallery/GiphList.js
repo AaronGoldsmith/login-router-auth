@@ -22,6 +22,8 @@ function GiphList(props){
   }
 
 
+  // .get(`https://${giphy}/${translate}${keyword}`)
+
 
   // TODO: show results on enter (submit).
   //       load data immediately.
@@ -36,7 +38,7 @@ class GiphListController extends Component {
     let scrollTop = e.path[1].scrollY;
     this.props.handleScroll(scrollTop);
   }
-  // .get(`https://${giphy}/${translate}${keyword}`)
+
   updateGiphList = (data) => {
       this.setState({showData: data })
   }
@@ -68,7 +70,6 @@ class GiphListController extends Component {
       this.searchGiphyFor(this.props.searchKey);
     }
     if(this.state.data !== prevState.data){
-      // console.log(this.state.data);
       this.updateGiphList(this.state.data);
     }
   }

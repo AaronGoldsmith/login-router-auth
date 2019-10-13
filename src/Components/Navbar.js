@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 import * as firebase from "firebase/app";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -34,7 +34,7 @@ function Navbar(){
 firebase.auth()
   .onAuthStateChanged(user => user ? setUser(user) : setUser(null))
 
-  const name = user? user.displayName.split(' ')[0] : "Anonymous"
+  const name = user && !user.isAnonymous ? user.displayName.split(' ')[0] : "Anonymous"
     return (
       <div className={"rootBar"}>
         <AppBar position="sticky">

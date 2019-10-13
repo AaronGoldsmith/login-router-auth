@@ -1,8 +1,12 @@
 import React, { Component } from "react";
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import * as firebase from "firebase/app";
+import { uiConfig } from "../Config/config"
+
 import "firebase/auth";
 import "../styles.css";
 
+// TODO: add as a modal popup
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +27,7 @@ class Login extends Component {
       <pre>
         {(JSON.stringify(user, null, ' '))}
       </pre> :
-      <div id="firebaseui-auth-container" />
+        <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
   }
   componentDidMount() {
     this.registerUser();
