@@ -1,5 +1,4 @@
-import dotenv from 'dotenv'
-dotenv.config();
+// import dotenv from 'dotenv'
 
 const key = 'fgqeu0D5qhNe3XPLqHyhNsHJlyAM77MR'
 export const giphy = "api.giphy.com/v1/gifs";

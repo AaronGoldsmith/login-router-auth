@@ -1,10 +1,10 @@
 import React, {useState, useCallback} from "react";
-import GiphList from "../Components/Gallery/GiphList";
+import GiphListController from "../Components/Gallery/GiphList";
 // import Modal from "../components/Modal";
 import Search from "../Components/Gallery/Search";
 import "../styles.css";
 
-function Home() {
+ function Home(){
   const [showModal, setModal] = useState(false);
   const [key, setKey] = useState(null);
   const [scrolled, setScrolled] = useState(true);
@@ -24,7 +24,7 @@ function Home() {
         }}
       />
       {/* <Modal showing={showModal} onClose={() => setModal(null)} /> */}
-      <GiphList
+      <GiphListController
         handleScroll={(top)=> scrollHandler(top)}
         searchKey={key}
         openModal={e => {

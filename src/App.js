@@ -6,9 +6,11 @@ import Home from "./Pages/Home";
 import User from "./Pages/User";
 import notFound from "./Pages/notFound";
 import Login from "./Pages/Login";
-import Navbar from "./Navbar";
+import Navbar from "./Components/Navbar";
 
 import "./styles.css";
+
+
 
 // Giphy gallery goes here
 function App () {

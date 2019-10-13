@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import * as firebase from "firebase/app";
 
 import { makeStyles } from "@material-ui/core/styles";
-import ButtonIcon from "./Components/ButtonIcon";
+import ButtonIcon from "./ButtonIcon";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import AccountCircle from "@material-ui/icons/AccountCircle";
